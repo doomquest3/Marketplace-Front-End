@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { useState } from "react";
+import {  ItemTable } from "../../components/ItemTable";
 import {
   Button,
   Card,
@@ -38,30 +39,8 @@ export default function Categorias() {
             </Link>
           </Col>
         </Row>
-        <Table>
-          <thead>
-            <tr>
-              <th>Nome</th>
-              <th>Criado Em</th>
-              <th>Ações</th>
-            </tr>
-          </thead>
-          <tbody>
-            {data.map((e) => (
-              <tr key={e.id}>
-                <td>{e.name}</td>
-                <td>{e.createdAt}</td>
-                <td>
-                  <Icon.PenFill color="green" />
-                  <Link href={`/categorias/${e.id}`}>
-                    <Icon.EyeFill />
-                  </Link>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </Table>
       </Card>
+      <ItemTable data={data}/>
     </>
   );
 }
