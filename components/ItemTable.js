@@ -14,34 +14,31 @@ import {
 import * as Icon from "react-bootstrap-icons";
 
 export default function ItemTable(props){
-    
     if(!props.data) return <>sem itens cadastrados</>;
 
     return (
-    <>
         <Table>
-        <thead>
-            <tr>
-            {props.headers.map((e)=>(
-                <th key={e} >{e}</th>
-            ))}
-            </tr>
-        </thead>
-        <tbody>
-            {propos.data.map((e) => (
-            <tr key={e.id}>
-                <td>{e.name}</td>
-                <td>{e.createdAt}</td>
-                <td>
-                <Icon.PenFill color="green" />
-                <Link href={`/categorias/${e.id}`}>
-                    <Icon.EyeFill />
-                </Link>
-                </td>
-            </tr>
-            ))}
-        </tbody>
+            <thead>
+                <tr>
+                {props.header.map((e)=>(
+                    <th key={e}>{e}</th>
+                ))}
+                </tr>
+            </thead>
+            <tbody>
+                {props.data.map((e) => (
+                <tr key={e.id}>
+                    <td>{e.name}</td>
+                    <td>{e.createdAt}</td>
+                    <td>
+                    <Icon.PenFill color="green" />
+                    <Link href={`categorias/${e.id}`}>
+                        <Icon.EyeFill />
+                    </Link>
+                    </td>
+                </tr>
+                ))}
+            </tbody>
         </Table>
-    </>
    );
 }

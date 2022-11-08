@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { useState } from "react";
-import {  ItemTable } from "../../components/ItemTable";
 import {
   Button,
   Card,
@@ -12,6 +11,7 @@ import {
   Table,
 } from "react-bootstrap";
 import * as Icon from "react-bootstrap-icons";
+import ItemTable from "../../components/ItemTable";
 
 export default function Categorias() {
   const [data, setData] = useState([
@@ -19,6 +19,8 @@ export default function Categorias() {
     { name: "categoria y", createdAt: "xx/xx/xxxx", id: 2 },
     { name: "categoria z", createdAt: "xx/xx/xxxx", id: 3 },
   ]);
+
+  const header = ["NOME", "CRIADO EM", "AÇÕES"];
 
   return (
     <>
@@ -40,7 +42,7 @@ export default function Categorias() {
           </Col>
         </Row>
       </Card>
-      <ItemTable data={data}/>
+      <ItemTable data={data} header={header}/>
     </>
   );
 }
