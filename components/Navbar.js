@@ -10,7 +10,7 @@ export default function NavbarMarketplace() {
           <Navbar.Toggle aria-controls="nav" />
           <Navbar.Collapse id="nav" className="flex-grow-0">
             <Nav>
-              <Link href="/" passHref>
+              <Link href="/home" passHref>
                 <Nav.Link>Home</Nav.Link>
               </Link>
               <Link href="/" passHref>

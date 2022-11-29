@@ -27,16 +27,22 @@ export default function ItemTable(props){
             </thead>
             <tbody>
                 {props.data.map((e) => (
-                <tr key={e.id}>
-                    <td>{e.name}</td>
-                    <td>{e.createdAt}</td>
-                    <td>
-                    <Icon.PenFill color="green" />
-                    <Link href={`categorias/${e.id}`}>
-                        <Icon.EyeFill />
-                    </Link>
-                    </td>
-                </tr>
+                    <tr key={e.id}>
+                        {Object.keys(e).map((i)=>
+                            i !== "id" ?  <td key={i}>{e[i]}</td> : ""
+                            
+                        )}
+                        <td>
+                            <Icon.PenFill color="green" />
+                            {props.detailLink ? (
+                                <Link href={`${props.detailLink}/${e.id}`}>
+                                    <Icon.EyeFill/>
+                                </Link>
+                            ):(
+                                ""
+                            )};
+                        </td>
+                    </tr>
                 ))}
             </tbody>
         </Table>

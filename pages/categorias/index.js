@@ -14,13 +14,25 @@ import * as Icon from "react-bootstrap-icons";
 import ItemTable from "../../components/ItemTable";
 
 export default function Categorias() {
-  const [data, setData] = useState([
-    { name: "categoria x", createdAt: "xx/xx/xxxx", id: 1 },
-    { name: "categoria y", createdAt: "xx/xx/xxxx", id: 2 },
-    { name: "categoria z", createdAt: "xx/xx/xxxx", id: 3 },
-  ]);
+  const data = [];
 
-  const header = ["NOME", "CRIADO EM", "AÇÕES"];
+  for(let i=0; i<10;i++){
+    const hoje = new Date();
+    data.push({
+      image: "image",
+      name: `produtos ${i}` ,
+      category: `categoria ${i}`,
+      price: `R$ ${1}.95`,
+      createdAt: hoje.toLocaleDateString(),
+      id: 1,
+    })
+  
+  };
+
+    
+
+  const headers = ["FOTO", "NOME", "CATEGORIA",
+  "PREÇO", "CRIADO EM:", "AÇÕES"];
 
   return (
     <>
@@ -42,7 +54,7 @@ export default function Categorias() {
           </Col>
         </Row>
       </Card>
-      <ItemTable data={data} header={header}/>
+      <ItemTable data={data} header={headers} detailLink="categorias"/>
     </>
   );
 }

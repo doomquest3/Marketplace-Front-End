@@ -18,7 +18,7 @@ function MyApp({ Component, pageProps }) {
   }
 
   return (
-    <>
+    <div className="d-flex flex-column p-0 vh-100">
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>ECommerce</title>
@@ -26,7 +26,7 @@ function MyApp({ Component, pageProps }) {
       <header>
         <Navbar />
       </header>
-      <div className="row">
+      <div className="row m=0 flex-grow-1">
         {showDrawer() ? <Drawer/> : ""}
         <div className={showDrawer() ?
           "col-md-10 bg-light" : "col-md-12 bg-light"}
@@ -35,7 +35,7 @@ function MyApp({ Component, pageProps }) {
         </div>
       </div>
       <Footer />
-    </>
+    </div>
   );
 }
 
