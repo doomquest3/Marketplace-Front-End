@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Button,
   Card,
@@ -12,9 +12,19 @@ import {
 } from "react-bootstrap";
 import * as Icon from "react-bootstrap-icons";
 import ItemTable from "../../components/ItemTable";
+import productService from "../../services/product.service";
 
-export default function produtos() {
-  const data = [];
+export default function Produtos() {
+  let auxiliar;
+  useEffect(()=>{
+    productService.getProducts().then(d=>{
+      auxiliar = d;
+    });
+  }, [])
+
+  const [data, useData] = useState([]);
+  
+  /*const data = [];
 
   for(let i=0; i<10;i++){
     const hoje = new Date();
@@ -27,7 +37,7 @@ export default function produtos() {
       id: 1,
     })
   
-  };
+  }; */
 
   
 
