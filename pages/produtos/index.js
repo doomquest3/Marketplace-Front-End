@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/rules-of-hooks */
+import { setRevalidateHeaders } from "next/dist/server/send-payload";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import {
@@ -15,34 +17,16 @@ import ItemTable from "../../components/ItemTable";
 import productService from "../../services/product.service";
 
 export default function Produtos() {
-  let auxiliar;
-  useEffect(()=>{
-    productService.getProducts().then(d=>{
-      auxiliar = d;
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    productService.getProducts().then((r) => {
+      console.log(r);
+      setData(r);
     });
-  }, [])
+  }, []);
 
-  const [data, useData] = useState([]);
-  
-  /*const data = [];
-
-  for(let i=0; i<10;i++){
-    const hoje = new Date();
-    data.push({
-      image: "image",
-      name: `produtos ${i}` ,
-      category: `categoria ${i}`,
-      price: `R$ ${1}.95`,
-      createdAt: hoje.toLocaleDateString(),
-      id: 1,
-    })
-  
-  }; */
-
-  
-
-  const headers = ["FOTO", "NOME", "CATEGORIA",
-  "PREÇO", "CRIADO EM:", "AÇÕES"];
+  const headers = ["FOTO", "NOME", "CATEGORIA", "PREÇO", "CRIADO EM:", "AÇÕES"];
 
   return (
     <>
@@ -64,7 +48,7 @@ export default function Produtos() {
           </Col>
         </Row>
       </Card>
-      <ItemTable data={data} header={headers} detailLink="produtos"/>
+      <ItemTable data={data} header={headers} detailLink="produtos" />
     </>
   );
 }

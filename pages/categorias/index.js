@@ -19,7 +19,7 @@ export default function Categorias() {
   for(let i=0; i<10;i++){
     const hoje = new Date();
     data.push({
-      image: "image",
+      // image: "image",
       name: `produtos ${i}` ,
       category: `categoria ${i}`,
       price: `R$ ${1}.95`,
