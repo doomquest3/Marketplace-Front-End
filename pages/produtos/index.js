@@ -48,7 +48,12 @@ export default function Produtos() {
           </Col>
         </Row>
       </Card>
-      <ItemTable data={data} header={headers} detailLink="produtos" />
+      <ItemTable 
+        data={data} 
+        header={headers} 
+        detailLink="produtos" 
+        editLink="produtos/editar" 
+      />
     </>
   );
 }

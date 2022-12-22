@@ -24,5 +24,16 @@ export default {
         
         return result.data;
     },
+    async updateProduct(data, id){
+        data.createdAt = new Date().toLocaleString();
+        const result = await api.put(`/products/${id}`, {
+            image: "https://i.dummyjson.com/data/products/2/thumbnail.jpg",
+            name: data.name,
+            price: data.price,
+            createdAt: new Date().toLocaleString(),
+        });
+        
+        return result.data;
+    },
     
 }
