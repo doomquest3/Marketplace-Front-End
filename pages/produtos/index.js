@@ -15,8 +15,11 @@ import {
 import * as Icon from "react-bootstrap-icons";
 import ItemTable from "../../components/ItemTable";
 import productService from "../../services/product.service";
+import useAuth from "../../hooks/useAuth"
 
 export default function Produtos() {
+  useAuth();
+  
   const [data, setData] = useState([]);
 
   useEffect(() => {

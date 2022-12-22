@@ -6,11 +6,11 @@ import authService from "../components/services/auth.service";
 
 export default function NavbarMarketplace() {
   const router = useRouter();
-  const [isAuthenticated, setIsAuthenticated] = useAuthContext();
+  const [isAuth, setIsAuth] = useAuthContext();
 
   function handleLogout() {
     authService.logout();
-    setIsAuthenticated(false);
+    setIsAuth(false);
     router.push("/login");
   }
 
@@ -31,7 +31,7 @@ export default function NavbarMarketplace() {
               <Link href="/" passHref>
                 <Nav.Link>Ajuda</Nav.Link>
               </Link>
-              {isAuthenticated ? (
+              {isAuth ? (
                 <Nav.Link onClick={handleLogout}>
                   Sair
                 </Nav.Link>
